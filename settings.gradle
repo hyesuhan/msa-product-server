@@ -1,0 +1,5 @@
+rootProject.name = 'com-order-system'
+
+include 'server'
+include 'order'
+include 'product'
