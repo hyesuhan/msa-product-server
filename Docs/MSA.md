@@ -1,4 +1,4 @@
-## MSA 란?
+## 01. MSA 란?
 ---
 
 ### Micro-Service Architecture (MSA)
