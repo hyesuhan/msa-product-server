@@ -1,4 +1,4 @@
-## Spring Cloud 개요
+## 02. Spring Cloud 개요
 ---
 ![image](https://github.com/user-attachments/assets/1ddcb797-fd55-487c-ad65-5e5bf14f2fee)
 
