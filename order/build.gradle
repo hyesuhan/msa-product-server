@@ -22,7 +22,17 @@ ext {
 }
 
 dependencies {
+	// openfeign
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// spring web
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+
+	// eureka server
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
