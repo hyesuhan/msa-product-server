@@ -1,4 +1,4 @@
-rootProject.name = 'com-order-system'
+rootProject.name = 'com.order-system'
 
 include 'server'
 include 'order'
