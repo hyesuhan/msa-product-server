@@ -3,6 +3,14 @@ spring:
     name: order-service
   datasource:
     url: jdbc:mysql://localhost:3308/orderdb?useSSL=false&serverTimezone=UTC
+  cloud:
+    openfeign:
+      client:
+        config:
+          product-service:
+            connect-timeout: 3000
+            read-timeout: 5000
+
 
 server:
   port: 19091
@@ -11,3 +19,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:19090/eureka/ # Eureka Client 와 통신할 Url을 지정한다.
+
