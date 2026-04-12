@@ -1,10 +1,8 @@
 package com.order_system_client.product;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/products")
@@ -17,5 +15,30 @@ public class ProductController {
     @GetMapping("/{productId}")
     public String getProduct(@PathVariable("productId") Long productId) {
         return "ProductID: " + productId + ", Current Port: " + port;
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getAllProducts() {
+
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createProduct(@RequestBody CreateProductDto dto) {
+
+    }
+
+    @PutMapping("/{productId}")
+    public ResponseEntity<?> updateProduct(@PathVariable("productId") Long productId, @RequestBody UpdateProductDto dto) {
+
+    }
+
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable("productId") Long productId) {
+
+    }
+
+    @PatchMapping("/{productId}/stock")
+    public ResponseEntity<?> updateProductStock(@PathVariable("productId") Long productId, @RequestBody UpdateStockDto dto) {
+
     }
 }

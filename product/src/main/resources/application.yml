@@ -1,6 +1,9 @@
 spring:
   application:
     name: product-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/productdb?useSSL=false&serverTimezone=UTC
+
 server:
   port: 19092
 

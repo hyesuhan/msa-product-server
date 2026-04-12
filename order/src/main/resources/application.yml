@@ -1,6 +1,9 @@
 spring:
   application:
     name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3308/orderdb?useSSL=false&serverTimezone=UTC
+
 server:
   port: 19091
 
