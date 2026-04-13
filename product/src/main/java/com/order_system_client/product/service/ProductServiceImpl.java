@@ -1,10 +1,12 @@
 package com.order_system_client.product.service;
 
+import com.order_system_client.product.dto.ProductFallbackResponse;
 import com.order_system_client.product.entity.Product;
 import com.order_system_client.product.repository.ProductRepository;
 import com.order_system_client.product.dto.ProductRequest;
 import com.order_system_client.product.dto.ProductResponse;
 import com.order_system_client.product.dto.StockUpdateRequest;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,9 +21,15 @@ public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
 
     @Override
+    @CircuitBreaker(name = "productService", fallbackMethod = "getProductFallback")
     public ProductResponse getProduct(Long id) {
         Product product = findProductOrThrow(id);
         return ProductResponse.from(product);
+    }
+
+    public ProductFallbackResponse getProductFallback(Long id, Throwable throwable) {
+
+        return ProductFallbackResponse.of(id, "상품 정보를 가져오는 데 실패했습니다. 잠시 후 다시 시도해주세요.");
     }
 
     @Override
