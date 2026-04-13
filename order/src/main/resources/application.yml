@@ -1,6 +1,31 @@
 spring:
   application:
     name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3308/order_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          product-service:
+            connect-timeout: 3000
+            read-timeout: 5000
+
+
 server:
   port: 19091
 
@@ -8,3 +33,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:19090/eureka/ # Eureka Client 와 통신할 Url을 지정한다.
+
