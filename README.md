@@ -18,6 +18,8 @@
 
 1. [로드밸런싱: 서버 사이드, 네트워크, 단점, 실무](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/questions/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1QA.md)
 
+2. [OpenFeign PATCH 관련 문제](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/troubleShooting/OpenFeign.md) 
+
 ### 실행 방법
 Product 인스턴스 3개, 대신 product-db 컨테이너는 1개로 공유할것입니다.
 `docker-compose up -d` 후 Appliccation을 실행하면 됩니다.
