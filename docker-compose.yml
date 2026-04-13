@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: productdb
+      MYSQL_DATABASE: product_db
     ports:
       - "3307:3306"
     volumes:
@@ -13,7 +13,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: orderdb
+      MYSQL_DATABASE: order_db
     ports:
       - "3308:3306"
     volumes:

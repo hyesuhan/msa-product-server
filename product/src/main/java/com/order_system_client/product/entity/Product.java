@@ -1,4 +1,4 @@
-package com.order_system_client.product;
+package com.order_system_client.product.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

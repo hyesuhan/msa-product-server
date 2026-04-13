@@ -1,6 +1,6 @@
 package com.order_system_client.product.dto;
 
-import com.order_system_client.product.Product;
+import com.order_system_client.product.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

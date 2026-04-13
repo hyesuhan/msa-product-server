@@ -1,5 +1,6 @@
-package com.order_system_client.product;
+package com.order_system_client.product.repository;
 
+import com.order_system_client.product.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

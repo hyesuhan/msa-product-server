@@ -1,7 +1,7 @@
 package com.order_system_client.product.service;
 
-import com.order_system_client.product.Product;
-import com.order_system_client.product.ProductRepository;
+import com.order_system_client.product.entity.Product;
+import com.order_system_client.product.repository.ProductRepository;
 import com.order_system_client.product.dto.ProductRequest;
 import com.order_system_client.product.dto.ProductResponse;
 import com.order_system_client.product.dto.StockUpdateRequest;
