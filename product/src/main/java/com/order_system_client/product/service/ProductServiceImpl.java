@@ -6,7 +6,9 @@ import com.order_system_client.product.repository.ProductRepository;
 import com.order_system_client.product.dto.ProductRequest;
 import com.order_system_client.product.dto.ProductResponse;
 import com.order_system_client.product.dto.StockUpdateRequest;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -21,6 +23,16 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
+    private final CircuitBreakerRegistry circuitBreakerRegistry;
+
+    @PostConstruct
+    public void registerEvenListener() {
+        circuitBreakerRegistry.circuitBreaker("productService").getEventPublisher()
+                .onStateTransition(event -> log.info("CircuitBreaker State Transition: {}", event))
+                .onFailureRateExceeded(event -> log.warn("CircuitBreaker Failure Rate Exceeded: {}", event))
+                .onCallNotPermitted(event -> log.warn("CircuitBreaker Call Not Permitted: {}", event))
+                .onError(event -> log.error("CircuitBreaker Error: {}", event));
+    }
 
     @Override
     @CircuitBreaker(name = "productService", fallbackMethod = "getProductFallback")
@@ -32,7 +44,7 @@ public class ProductServiceImpl implements ProductService{
 
     public ProductFallbackResponse getProductFallback(Long id, Throwable throwable) {
 
-        return ProductFallbackResponse.of(id, "상품 정보를 가져오는 데 실패했습니다. 잠시 후 다시 시도해주세요.");
+        return new ProductFallbackResponse(id);
     }
 
     @Override

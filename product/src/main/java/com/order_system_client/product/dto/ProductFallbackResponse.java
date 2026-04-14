@@ -1,16 +1,12 @@
 package com.order_system_client.product.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-public class ProductFallbackResponse {
+public class ProductFallbackResponse extends ProductResponse {
 
-    private Long id;
-    private String errorMessage;
 
-        public static ProductFallbackResponse of(Long id, String errorMessage) {
-            return new ProductFallbackResponse(id, errorMessage);
-        }
+    public ProductFallbackResponse(Long id) {
+        super(id, "존재하지 않는 상품입니다..", null, 0, null);
+    }
 }
