@@ -45,6 +45,16 @@ dependencies {
 
 	//validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// circuit breaker
+	implementation("io.github.resilience4j:resilience4j-spring-boot4:2.4.0")
+
+	// monitor & health-check
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+
+	// aop
+	implementation("org.springframework.boot:spring-boot-starter-aop:4.0.0-M2")
 }
 
 dependencyManagement {

@@ -1,11 +1,16 @@
 package com.order_system_client.product.service;
 
+import com.order_system_client.product.dto.ProductFallbackResponse;
 import com.order_system_client.product.entity.Product;
 import com.order_system_client.product.repository.ProductRepository;
 import com.order_system_client.product.dto.ProductRequest;
 import com.order_system_client.product.dto.ProductResponse;
 import com.order_system_client.product.dto.StockUpdateRequest;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,14 +19,32 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
+    private final CircuitBreakerRegistry circuitBreakerRegistry;
+
+    @PostConstruct
+    public void registerEvenListener() {
+        circuitBreakerRegistry.circuitBreaker("productService").getEventPublisher()
+                .onStateTransition(event -> log.info("CircuitBreaker State Transition: {}", event))
+                .onFailureRateExceeded(event -> log.warn("CircuitBreaker Failure Rate Exceeded: {}", event))
+                .onCallNotPermitted(event -> log.warn("CircuitBreaker Call Not Permitted: {}", event))
+                .onError(event -> log.error("CircuitBreaker Error: {}", event));
+    }
 
     @Override
+    @CircuitBreaker(name = "productService", fallbackMethod = "getProductFallback")
     public ProductResponse getProduct(Long id) {
+        log.info("Fetching product details for productId: {}", id);
         Product product = findProductOrThrow(id);
         return ProductResponse.from(product);
+    }
+
+    public ProductFallbackResponse getProductFallback(Long id, Throwable throwable) {
+
+        return new ProductFallbackResponse(id);
     }
 
     @Override
