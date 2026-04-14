@@ -9,7 +9,8 @@
 
 > 로그에서는 다음과 같이 나옵니다.
 
-[!image](https://private-user-images.githubusercontent.com/121243582/577732600-cc73de37-efdc-4874-8eff-d842454d97f9.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzYxMzUyNzUsIm5iZiI6MTc3NjEzNDk3NSwicGF0aCI6Ii8xMjEyNDM1ODIvNTc3NzMyNjAwLWNjNzNkZTM3LWVmZGMtNDg3NC04ZWZmLWQ4NDI0NTRkOTdmOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNDE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDQxNFQwMjQ5MzVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jZjE2NGMxYzUwOWQ4YWE5NjA1ZjVlODQ2MzZlNWRkZjJjYmE0MjUwZmE4MWY1MTUzZWYwNTRlMzY4NzFhNzUyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.XUu9FXv-SSnxVlkY0ocojWGoUOsJqj3kd3_41nsj0rs)
+<img width="528" height="253" alt="Image" src="https://github.com/user-attachments/assets/643e7da9-1041-4b8a-bc2d-23e903302e43" />
+
 
 Resilience4J 문서를 보니 `fallbackMethod` 는 원본 메서드와 **동일 반환 타입**을 가져야 한다.
 

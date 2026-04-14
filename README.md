@@ -6,11 +6,14 @@
 2. [Spring Cloud란 무엇일까요?](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/SpringCloud.md)
 3. [서비스 디스커버리와 Eureka](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/ServiceDiscovery.md)
 4. [로드 밸런싱과 Ribbon](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1.md)
+5. [서킷 브레이커와 Risilience4J](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/%EC%84%9C%ED%82%B7%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%BB%A4.md)
 
 
 
 ### 🤔트러블 슈팅 정리
 1. [세팅 관련 트러블 슈팅](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/troubleShooting/%EC%84%9C%EB%B2%84%EC%84%B8%ED%8C%85.md)
+2. [OpenFeign PATCH 관련 문제](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/troubleShooting/OpenFeign.md)
+3. [서킷 브레이커 Fallback Method Response 관련 문제](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/troubleShooting/%EC%84%9C%ED%82%B7%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%BB%A4Response.md)
 
 
 ### 🖐️학습 중 생긴 궁금증을 풀어봅니다!
@@ -18,7 +21,7 @@
 
 1. [로드밸런싱: 서버 사이드, 네트워크, 단점, 실무](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/questions/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1QA.md)
 
-2. [OpenFeign PATCH 관련 문제](https://github.com/hyesuhan/msa-product-server/blob/main/Docs/troubleShooting/OpenFeign.md) 
+2. 
 
 ### 실행 방법
 Product 인스턴스 3개, 대신 product-db 컨테이너는 1개로 공유할것입니다.
