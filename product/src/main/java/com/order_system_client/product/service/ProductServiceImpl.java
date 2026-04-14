@@ -8,6 +8,7 @@ import com.order_system_client.product.dto.ProductResponse;
 import com.order_system_client.product.dto.StockUpdateRequest;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
@@ -23,6 +25,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     @CircuitBreaker(name = "productService", fallbackMethod = "getProductFallback")
     public ProductResponse getProduct(Long id) {
+        log.info("Fetching product details for productId: {}", id);
         Product product = findProductOrThrow(id);
         return ProductResponse.from(product);
     }
